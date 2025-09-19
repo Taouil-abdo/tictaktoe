@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        #theme-toggle {
+            background-color: #80808082;
+            border-radius: 2rem;
+            padding-left: 1rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 1px 1px 1px;
+
+        }
+
+        #light,
+        #dark {
+            border-radius: 1rem;
+            background-color: azure;
+            height: 2rem;
+            width: 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        .dark-mode {
+            /* background-color: black; */
+            color: white;
+        }
+
+        .light-mode {
+            background-color: rgb(255, 215, 156);
+            color: black;
+        }
+
+        /* Card Styles */
+        .cards-container {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 20px 0;
+        }
+
+        .card {
+            background-color: #2a2a2a;
+            border-radius: 10px;
+            padding: 10px;
+            width: 30px;
+            height: 30px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid #444;
+        }
+
+        .card:hover {
+            background-color: #3a3a3a;
+            border-color: #666;
+            transform: translateY(-5px);
+        }
+
+        .card input[type="radio"] {
+            display: none;
+        }
+
+        .card-label {
+            font-size: 2rem;
+            font-weight: bold;
+            color: aliceblue;
+            display: block;
+        }
+
+        .card.selected {
+            background-color: #4CAF50;
+            border-color: #4CAF50;
+        }
+
+        .card.selected .card-label {
+            color: white;
+        }
+
+        .logo{
+            color: white;;
+        }
+    </style>
+
+</head>
+
+<body class="light-mode">
+    <header class="header">
+        <div id="left-element">
+            <h1 id="logo" style="color: rgb(33, 33, 33);">TIC TAC TOE</h1>
+        </div>
+        <div id="rigth-element">
+            <div id="theme-toggle">
+                <button id="light"><i class="fa-solid fa-sun" style="color: #FFD43B;"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-game">
+        <div class="cards-container">
+            <h2>Choose Game Piece!</h2>
+            <label class="card" for="x">
+                <input id="x" type="radio" name="piece" value="X">
+                <span class="card-label">X</span>
+            </label>
+            <label class="card" for="o">
+                <input id="o" type="radio" name="piece" value="O">
+                <span class="card-label">O</span>
+            </label>
+        </div>
+        <input type="text" class="input" placeholder="choose the size of the board" id="board-size">
+        <div class="wins">
+            <div class="winBackgorund">
+                <h3 style="color:white">Player X Wins: <span id="x-wins">0</span></h3>
+            </div>
+            <div>
+                <h3 style="color:white">Player O Wins: <span id="o-wins">0</span></h3>
+            </div>
+        </div>
+        <div class="game-container">
+            <!-- player 1 -->
+            <div id="players-info-1">
+                <h2 id="player-1"> player 1 : X </h2>
+            </div>
+            <!-- gameZone -->
+            <div id="gameZone">
+                <div id="board">
+                </div>
+                <div>
+                    <button id="start-game">Start Game</button>
+                    <button id="Reset">Reset Game</button>
+                </div>
+            </div>
+            <!-- player 2 -->
+            <div id="players-info-2">
+                <h2 id="player-2"> player 2 : O </h2>
+            </div>
+        </div>
+    </main>
+
+    <script src="main.js"></script>
+   
+    <script>
+        const themeToggle = document.getElementById('theme-toggle');
+        const lightbtn = document.getElementById('light');
+        const logo = document.getElementById("logo");
+    
+        themeToggle.addEventListener('click', () => {
+            const body = document.body;
+    
+            body.classList.toggle('light-mode');
+            body.classList.toggle('dark-mode');
+
+            if (body.classList.contains('dark-mode')) {
+                lightbtn.innerHTML = '<i class="fa-solid fa-moon" style="color: #5c77fe;"></i>';
+                logo.style.color ='white';
+
+            } else {
+                lightbtn.innerHTML = '<i class="fa-solid fa-sun" style="color: #FFD43B;"></i>';
+                logo.style.color ='black';
+
+            }
+        });
+    </script>
+
+
+</body>
+
+</html>
