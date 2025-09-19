@@ -169,3 +169,27 @@ resetBtn.addEventListener('click', function () {
     board = [];
     gameOver = false;
 });
+
+
+// dark mode 
+
+const themeToggle = document.getElementById('theme-toggle');
+        const lightbtn = document.getElementById('light');
+        const logo = document.getElementById("logo");
+    
+        themeToggle.addEventListener('click', () => {
+            const body = document.body;
+    
+            body.classList.toggle('light-mode');
+            body.classList.toggle('dark-mode');
+
+            if (body.classList.contains('dark-mode')) {
+                lightbtn.innerHTML = '<i class="fa-solid fa-moon" style="color: #5c77fe;"></i>';
+                logo.style.color ='white';
+
+            } else {
+                lightbtn.innerHTML = '<i class="fa-solid fa-sun" style="color: #FFD43B;"></i>';
+                logo.style.color ='black';
+
+            }
+        });
